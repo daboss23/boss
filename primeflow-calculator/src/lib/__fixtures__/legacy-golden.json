@@ -1,0 +1,1310 @@
+[
+  {
+    "name": "baseline",
+    "inputs": {
+      "currency": "$",
+      "avgSaleValue": 2500,
+      "monthlyLeadVolume": 50,
+      "monthlyMarketingSpend": 3000,
+      "responseTimeIdx": 4,
+      "workStart": 9,
+      "workEnd": 17,
+      "activeDays": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "missedCallsWeekly": 8,
+      "conversionRate": 15,
+      "followUpAttempts": "3",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 12,
+      "reactQualRate": 60,
+      "reactCloseRate": 25
+    },
+    "expected": {
+      "sym": "$",
+      "saleVal": 2500,
+      "monthlyLeads": 50,
+      "monthlySpend": 3000,
+      "convRate": 0.15,
+      "annualRevenue": 225000,
+      "annualWaste": 30600,
+      "cpa": 400,
+      "potentialCPA": 208,
+      "rt": {
+        "label": "1 hr",
+        "minutes": 60,
+        "multiplier": 0.52
+      },
+      "speedLeakage": 207692.3076923077,
+      "optimalRevenue": 432692.3076923077,
+      "coveragePct": 24,
+      "weeklyHours": 40,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 12,
+      "annualMissed": 416,
+      "revLostMissed": 1040000,
+      "recoverableRev": 312000,
+      "prospects": 510,
+      "acquisitionCostSpent": 30600,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 1913
+        },
+        {
+          "rate": "2%",
+          "revenue": 3825
+        },
+        {
+          "rate": "3%",
+          "revenue": 5738
+        },
+        {
+          "rate": "5%",
+          "revenue": 9563
+        },
+        {
+          "rate": "8%",
+          "revenue": 15300
+        }
+      ],
+      "reactStep1": 61.199999999999996,
+      "reactStep2": 36.72,
+      "reactStep3": 9.18,
+      "reactRevenue": 22950,
+      "reactivationResponseRate": 0.12,
+      "reactivationQualRate": 0.6,
+      "reactivationCloseRate": 0.25,
+      "score": 46,
+      "costPerLead": 60,
+      "activeDays": 5,
+      "totalLeakage": 1270642.3076923077,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 207692.3076923077,
+          "pct": 16
+        },
+        {
+          "label": "Missed Calls",
+          "value": 1040000,
+          "pct": 82
+        },
+        {
+          "label": "Dead Leads",
+          "value": 22950,
+          "pct": 2
+        }
+      ],
+      "reactivationOpportunity": 22950
+    }
+  },
+  {
+    "name": "tiny business, 5 leads/month",
+    "inputs": {
+      "currency": "$",
+      "avgSaleValue": 800,
+      "monthlyLeadVolume": 5,
+      "monthlyMarketingSpend": 250,
+      "responseTimeIdx": 4,
+      "workStart": 9,
+      "workEnd": 17,
+      "activeDays": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "missedCallsWeekly": 2,
+      "conversionRate": 20,
+      "followUpAttempts": "3",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 12,
+      "reactQualRate": 60,
+      "reactCloseRate": 25
+    },
+    "expected": {
+      "sym": "$",
+      "saleVal": 800,
+      "monthlyLeads": 5,
+      "monthlySpend": 250,
+      "convRate": 0.2,
+      "annualRevenue": 9600,
+      "annualWaste": 2400,
+      "cpa": 250,
+      "potentialCPA": 130,
+      "rt": {
+        "label": "1 hr",
+        "minutes": 60,
+        "multiplier": 0.52
+      },
+      "speedLeakage": 8861.538461538461,
+      "optimalRevenue": 18461.53846153846,
+      "coveragePct": 24,
+      "weeklyHours": 40,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 12,
+      "annualMissed": 104,
+      "revLostMissed": 83200,
+      "recoverableRev": 24960,
+      "prospects": 48,
+      "acquisitionCostSpent": 2400,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 58
+        },
+        {
+          "rate": "2%",
+          "revenue": 115
+        },
+        {
+          "rate": "3%",
+          "revenue": 173
+        },
+        {
+          "rate": "5%",
+          "revenue": 288
+        },
+        {
+          "rate": "8%",
+          "revenue": 461
+        }
+      ],
+      "reactStep1": 5.76,
+      "reactStep2": 3.456,
+      "reactStep3": 0.864,
+      "reactRevenue": 691.2,
+      "reactivationResponseRate": 0.12,
+      "reactivationQualRate": 0.6,
+      "reactivationCloseRate": 0.25,
+      "score": 60,
+      "costPerLead": 50,
+      "activeDays": 5,
+      "totalLeakage": 92752.73846153847,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 8861.538461538461,
+          "pct": 10
+        },
+        {
+          "label": "Missed Calls",
+          "value": 83200,
+          "pct": 90
+        },
+        {
+          "label": "Dead Leads",
+          "value": 691.2,
+          "pct": 1
+        }
+      ],
+      "reactivationOpportunity": 691.2
+    }
+  },
+  {
+    "name": "large business, 2000 leads/month",
+    "inputs": {
+      "currency": "$",
+      "avgSaleValue": 450,
+      "monthlyLeadVolume": 2000,
+      "monthlyMarketingSpend": 60000,
+      "responseTimeIdx": 6,
+      "workStart": 9,
+      "workEnd": 17,
+      "activeDays": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "missedCallsWeekly": 45,
+      "conversionRate": 6,
+      "followUpAttempts": "3",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 12,
+      "reactQualRate": 60,
+      "reactCloseRate": 25
+    },
+    "expected": {
+      "sym": "$",
+      "saleVal": 450,
+      "monthlyLeads": 2000,
+      "monthlySpend": 60000,
+      "convRate": 0.06,
+      "annualRevenue": 648000,
+      "annualWaste": 676800,
+      "cpa": 500,
+      "potentialCPA": 130,
+      "rt": {
+        "label": "6 hrs",
+        "minutes": 360,
+        "multiplier": 0.26
+      },
+      "speedLeakage": 1844307.692307692,
+      "optimalRevenue": 2492307.692307692,
+      "coveragePct": 24,
+      "weeklyHours": 40,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 12,
+      "annualMissed": 2340,
+      "revLostMissed": 1053000,
+      "recoverableRev": 315900,
+      "prospects": 22560,
+      "acquisitionCostSpent": 676800,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 15228
+        },
+        {
+          "rate": "2%",
+          "revenue": 30456
+        },
+        {
+          "rate": "3%",
+          "revenue": 45684
+        },
+        {
+          "rate": "5%",
+          "revenue": 76140
+        },
+        {
+          "rate": "8%",
+          "revenue": 121824
+        }
+      ],
+      "reactStep1": 2707.2,
+      "reactStep2": 1624.32,
+      "reactStep3": 406.08,
+      "reactRevenue": 182736,
+      "reactivationResponseRate": 0.12,
+      "reactivationQualRate": 0.6,
+      "reactivationCloseRate": 0.25,
+      "score": 24,
+      "costPerLead": 30,
+      "activeDays": 5,
+      "totalLeakage": 3080043.692307692,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 1844307.692307692,
+          "pct": 60
+        },
+        {
+          "label": "Missed Calls",
+          "value": 1053000,
+          "pct": 34
+        },
+        {
+          "label": "Dead Leads",
+          "value": 182736,
+          "pct": 6
+        }
+      ],
+      "reactivationOpportunity": 182736
+    }
+  },
+  {
+    "name": "1-minute response",
+    "inputs": {
+      "currency": "$",
+      "avgSaleValue": 2500,
+      "monthlyLeadVolume": 50,
+      "monthlyMarketingSpend": 3000,
+      "responseTimeIdx": 0,
+      "workStart": 9,
+      "workEnd": 17,
+      "activeDays": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "missedCallsWeekly": 8,
+      "conversionRate": 32,
+      "followUpAttempts": "6+",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 12,
+      "reactQualRate": 60,
+      "reactCloseRate": 25
+    },
+    "expected": {
+      "sym": "$",
+      "saleVal": 2500,
+      "monthlyLeads": 50,
+      "monthlySpend": 3000,
+      "convRate": 0.32,
+      "annualRevenue": 480000,
+      "annualWaste": 24480,
+      "cpa": 187.5,
+      "potentialCPA": 187.5,
+      "rt": {
+        "label": "≤1 min",
+        "minutes": 1,
+        "multiplier": 1
+      },
+      "speedLeakage": 0,
+      "optimalRevenue": 480000,
+      "coveragePct": 24,
+      "weeklyHours": 40,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 12,
+      "annualMissed": 416,
+      "revLostMissed": 1040000,
+      "recoverableRev": 312000,
+      "prospects": 408,
+      "acquisitionCostSpent": 24480,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 1530
+        },
+        {
+          "rate": "2%",
+          "revenue": 3060
+        },
+        {
+          "rate": "3%",
+          "revenue": 4590
+        },
+        {
+          "rate": "5%",
+          "revenue": 7650
+        },
+        {
+          "rate": "8%",
+          "revenue": 12240
+        }
+      ],
+      "reactStep1": 48.96,
+      "reactStep2": 29.375999999999998,
+      "reactStep3": 7.343999999999999,
+      "reactRevenue": 18360,
+      "reactivationResponseRate": 0.12,
+      "reactivationQualRate": 0.6,
+      "reactivationCloseRate": 0.25,
+      "score": 69,
+      "costPerLead": 60,
+      "activeDays": 5,
+      "totalLeakage": 1058360,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 0,
+          "pct": 0
+        },
+        {
+          "label": "Missed Calls",
+          "value": 1040000,
+          "pct": 98
+        },
+        {
+          "label": "Dead Leads",
+          "value": 18360,
+          "pct": 2
+        }
+      ],
+      "reactivationOpportunity": 18360
+    }
+  },
+  {
+    "name": "1-day response",
+    "inputs": {
+      "currency": "$",
+      "avgSaleValue": 2500,
+      "monthlyLeadVolume": 50,
+      "monthlyMarketingSpend": 3000,
+      "responseTimeIdx": 8,
+      "workStart": 9,
+      "workEnd": 17,
+      "activeDays": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "missedCallsWeekly": 8,
+      "conversionRate": 4,
+      "followUpAttempts": "1",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 12,
+      "reactQualRate": 60,
+      "reactCloseRate": 25
+    },
+    "expected": {
+      "sym": "$",
+      "saleVal": 2500,
+      "monthlyLeads": 50,
+      "monthlySpend": 3000,
+      "convRate": 0.04,
+      "annualRevenue": 60000,
+      "annualWaste": 34560,
+      "cpa": 1500,
+      "potentialCPA": 150,
+      "rt": {
+        "label": "1 day",
+        "minutes": 1440,
+        "multiplier": 0.1
+      },
+      "speedLeakage": 540000,
+      "optimalRevenue": 600000,
+      "coveragePct": 24,
+      "weeklyHours": 40,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 12,
+      "annualMissed": 416,
+      "revLostMissed": 1040000,
+      "recoverableRev": 312000,
+      "prospects": 576,
+      "acquisitionCostSpent": 34560,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 2160
+        },
+        {
+          "rate": "2%",
+          "revenue": 4320
+        },
+        {
+          "rate": "3%",
+          "revenue": 6480
+        },
+        {
+          "rate": "5%",
+          "revenue": 10800
+        },
+        {
+          "rate": "8%",
+          "revenue": 17280
+        }
+      ],
+      "reactStep1": 69.12,
+      "reactStep2": 41.472,
+      "reactStep3": 10.368,
+      "reactRevenue": 25920,
+      "reactivationResponseRate": 0.12,
+      "reactivationQualRate": 0.6,
+      "reactivationCloseRate": 0.25,
+      "score": 14,
+      "costPerLead": 60,
+      "activeDays": 5,
+      "totalLeakage": 1605920,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 540000,
+          "pct": 34
+        },
+        {
+          "label": "Missed Calls",
+          "value": 1040000,
+          "pct": 65
+        },
+        {
+          "label": "Dead Leads",
+          "value": 25920,
+          "pct": 2
+        }
+      ],
+      "reactivationOpportunity": 25920
+    }
+  },
+  {
+    "name": "zero missed calls",
+    "inputs": {
+      "currency": "$",
+      "avgSaleValue": 2500,
+      "monthlyLeadVolume": 50,
+      "monthlyMarketingSpend": 3000,
+      "responseTimeIdx": 2,
+      "workStart": 9,
+      "workEnd": 17,
+      "activeDays": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "missedCallsWeekly": 0,
+      "conversionRate": 15,
+      "followUpAttempts": "3",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 12,
+      "reactQualRate": 60,
+      "reactCloseRate": 25
+    },
+    "expected": {
+      "sym": "$",
+      "saleVal": 2500,
+      "monthlyLeads": 50,
+      "monthlySpend": 3000,
+      "convRate": 0.15,
+      "annualRevenue": 225000,
+      "annualWaste": 30600,
+      "cpa": 400,
+      "potentialCPA": 328,
+      "rt": {
+        "label": "10 min",
+        "minutes": 10,
+        "multiplier": 0.82
+      },
+      "speedLeakage": 49390.24390243902,
+      "optimalRevenue": 274390.243902439,
+      "coveragePct": 24,
+      "weeklyHours": 40,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 12,
+      "annualMissed": 0,
+      "revLostMissed": 0,
+      "recoverableRev": 0,
+      "prospects": 510,
+      "acquisitionCostSpent": 30600,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 1913
+        },
+        {
+          "rate": "2%",
+          "revenue": 3825
+        },
+        {
+          "rate": "3%",
+          "revenue": 5738
+        },
+        {
+          "rate": "5%",
+          "revenue": 9563
+        },
+        {
+          "rate": "8%",
+          "revenue": 15300
+        }
+      ],
+      "reactStep1": 61.199999999999996,
+      "reactStep2": 36.72,
+      "reactStep3": 9.18,
+      "reactRevenue": 22950,
+      "reactivationResponseRate": 0.12,
+      "reactivationQualRate": 0.6,
+      "reactivationCloseRate": 0.25,
+      "score": 66,
+      "costPerLead": 60,
+      "activeDays": 5,
+      "totalLeakage": 72340.24390243902,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 49390.24390243902,
+          "pct": 68
+        },
+        {
+          "label": "Missed Calls",
+          "value": 0,
+          "pct": 0
+        },
+        {
+          "label": "Dead Leads",
+          "value": 22950,
+          "pct": 32
+        }
+      ],
+      "reactivationOpportunity": 22950
+    }
+  },
+  {
+    "name": "one active day",
+    "inputs": {
+      "currency": "$",
+      "avgSaleValue": 2500,
+      "monthlyLeadVolume": 50,
+      "monthlyMarketingSpend": 3000,
+      "responseTimeIdx": 4,
+      "workStart": 10,
+      "workEnd": 14,
+      "activeDays": [
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "missedCallsWeekly": 8,
+      "conversionRate": 15,
+      "followUpAttempts": "3",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 12,
+      "reactQualRate": 60,
+      "reactCloseRate": 25
+    },
+    "expected": {
+      "sym": "$",
+      "saleVal": 2500,
+      "monthlyLeads": 50,
+      "monthlySpend": 3000,
+      "convRate": 0.15,
+      "annualRevenue": 225000,
+      "annualWaste": 30600,
+      "cpa": 400,
+      "potentialCPA": 208,
+      "rt": {
+        "label": "1 hr",
+        "minutes": 60,
+        "multiplier": 0.52
+      },
+      "speedLeakage": 207692.3076923077,
+      "optimalRevenue": 432692.3076923077,
+      "coveragePct": 2,
+      "weeklyHours": 4,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 0,
+      "annualMissed": 416,
+      "revLostMissed": 1040000,
+      "recoverableRev": 312000,
+      "prospects": 510,
+      "acquisitionCostSpent": 30600,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 1913
+        },
+        {
+          "rate": "2%",
+          "revenue": 3825
+        },
+        {
+          "rate": "3%",
+          "revenue": 5738
+        },
+        {
+          "rate": "5%",
+          "revenue": 9563
+        },
+        {
+          "rate": "8%",
+          "revenue": 15300
+        }
+      ],
+      "reactStep1": 61.199999999999996,
+      "reactStep2": 36.72,
+      "reactStep3": 9.18,
+      "reactRevenue": 22950,
+      "reactivationResponseRate": 0.12,
+      "reactivationQualRate": 0.6,
+      "reactivationCloseRate": 0.25,
+      "score": 41,
+      "costPerLead": 60,
+      "activeDays": 1,
+      "totalLeakage": 1270642.3076923077,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 207692.3076923077,
+          "pct": 16
+        },
+        {
+          "label": "Missed Calls",
+          "value": 1040000,
+          "pct": 82
+        },
+        {
+          "label": "Dead Leads",
+          "value": 22950,
+          "pct": 2
+        }
+      ],
+      "reactivationOpportunity": 22950
+    }
+  },
+  {
+    "name": "24/7 coverage, pounds",
+    "inputs": {
+      "currency": "£",
+      "avgSaleValue": 2500,
+      "monthlyLeadVolume": 50,
+      "monthlyMarketingSpend": 3000,
+      "responseTimeIdx": 1,
+      "workStart": 0,
+      "workEnd": 23,
+      "activeDays": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "missedCallsWeekly": 8,
+      "conversionRate": 15,
+      "followUpAttempts": "3",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 12,
+      "reactQualRate": 60,
+      "reactCloseRate": 25
+    },
+    "expected": {
+      "sym": "£",
+      "saleVal": 2500,
+      "monthlyLeads": 50,
+      "monthlySpend": 3000,
+      "convRate": 0.15,
+      "annualRevenue": 225000,
+      "annualWaste": 30600,
+      "cpa": 400,
+      "potentialCPA": 368,
+      "rt": {
+        "label": "5 min",
+        "minutes": 5,
+        "multiplier": 0.92
+      },
+      "speedLeakage": 19565.21739130435,
+      "optimalRevenue": 244565.21739130435,
+      "coveragePct": 96,
+      "weeklyHours": 161,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 100,
+      "annualMissed": 416,
+      "revLostMissed": 1040000,
+      "recoverableRev": 312000,
+      "prospects": 510,
+      "acquisitionCostSpent": 30600,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 1913
+        },
+        {
+          "rate": "2%",
+          "revenue": 3825
+        },
+        {
+          "rate": "3%",
+          "revenue": 5738
+        },
+        {
+          "rate": "5%",
+          "revenue": 9563
+        },
+        {
+          "rate": "8%",
+          "revenue": 15300
+        }
+      ],
+      "reactStep1": 61.199999999999996,
+      "reactStep2": 36.72,
+      "reactStep3": 9.18,
+      "reactRevenue": 22950,
+      "reactivationResponseRate": 0.12,
+      "reactivationQualRate": 0.6,
+      "reactivationCloseRate": 0.25,
+      "score": 75,
+      "costPerLead": 60,
+      "activeDays": 7,
+      "totalLeakage": 1082515.2173913044,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 19565.21739130435,
+          "pct": 2
+        },
+        {
+          "label": "Missed Calls",
+          "value": 1040000,
+          "pct": 96
+        },
+        {
+          "label": "Dead Leads",
+          "value": 22950,
+          "pct": 2
+        }
+      ],
+      "reactivationOpportunity": 22950
+    }
+  },
+  {
+    "name": "high-ticket consulting, euros",
+    "inputs": {
+      "currency": "€",
+      "avgSaleValue": 18000,
+      "monthlyLeadVolume": 12,
+      "monthlyMarketingSpend": 4500,
+      "responseTimeIdx": 5,
+      "workStart": 9,
+      "workEnd": 17,
+      "activeDays": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "missedCallsWeekly": 1,
+      "conversionRate": 25,
+      "followUpAttempts": "2",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 12,
+      "reactQualRate": 60,
+      "reactCloseRate": 25
+    },
+    "expected": {
+      "sym": "€",
+      "saleVal": 18000,
+      "monthlyLeads": 12,
+      "monthlySpend": 4500,
+      "convRate": 0.25,
+      "annualRevenue": 648000,
+      "annualWaste": 40500,
+      "cpa": 1500,
+      "potentialCPA": 570,
+      "rt": {
+        "label": "3 hrs",
+        "minutes": 180,
+        "multiplier": 0.38
+      },
+      "speedLeakage": 1057263.1578947369,
+      "optimalRevenue": 1705263.1578947369,
+      "coveragePct": 24,
+      "weeklyHours": 40,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 12,
+      "annualMissed": 52,
+      "revLostMissed": 936000,
+      "recoverableRev": 280800,
+      "prospects": 108,
+      "acquisitionCostSpent": 40500,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 2916
+        },
+        {
+          "rate": "2%",
+          "revenue": 5832
+        },
+        {
+          "rate": "3%",
+          "revenue": 8748
+        },
+        {
+          "rate": "5%",
+          "revenue": 14580
+        },
+        {
+          "rate": "8%",
+          "revenue": 23328
+        }
+      ],
+      "reactStep1": 12.959999999999999,
+      "reactStep2": 7.775999999999999,
+      "reactStep3": 1.9439999999999997,
+      "reactRevenue": 34991.99999999999,
+      "reactivationResponseRate": 0.12,
+      "reactivationQualRate": 0.6,
+      "reactivationCloseRate": 0.25,
+      "score": 46,
+      "costPerLead": 375,
+      "activeDays": 5,
+      "totalLeakage": 2028255.1578947369,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 1057263.1578947369,
+          "pct": 52
+        },
+        {
+          "label": "Missed Calls",
+          "value": 936000,
+          "pct": 46
+        },
+        {
+          "label": "Dead Leads",
+          "value": 34991.99999999999,
+          "pct": 2
+        }
+      ],
+      "reactivationOpportunity": 34991.99999999999
+    }
+  },
+  {
+    "name": "custom reactivation assumptions",
+    "inputs": {
+      "currency": "$",
+      "avgSaleValue": 2500,
+      "monthlyLeadVolume": 50,
+      "monthlyMarketingSpend": 3000,
+      "responseTimeIdx": 3,
+      "workStart": 9,
+      "workEnd": 17,
+      "activeDays": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "missedCallsWeekly": 8,
+      "conversionRate": 15,
+      "followUpAttempts": "3",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 5,
+      "reactQualRate": 40,
+      "reactCloseRate": 15
+    },
+    "expected": {
+      "sym": "$",
+      "saleVal": 2500,
+      "monthlyLeads": 50,
+      "monthlySpend": 3000,
+      "convRate": 0.15,
+      "annualRevenue": 225000,
+      "annualWaste": 30600,
+      "cpa": 400,
+      "potentialCPA": 272,
+      "rt": {
+        "label": "30 min",
+        "minutes": 30,
+        "multiplier": 0.68
+      },
+      "speedLeakage": 105882.35294117645,
+      "optimalRevenue": 330882.35294117645,
+      "coveragePct": 24,
+      "weeklyHours": 40,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 12,
+      "annualMissed": 416,
+      "revLostMissed": 1040000,
+      "recoverableRev": 312000,
+      "prospects": 510,
+      "acquisitionCostSpent": 30600,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 765
+        },
+        {
+          "rate": "2%",
+          "revenue": 1530
+        },
+        {
+          "rate": "3%",
+          "revenue": 2295
+        },
+        {
+          "rate": "5%",
+          "revenue": 3825
+        },
+        {
+          "rate": "8%",
+          "revenue": 6120
+        }
+      ],
+      "reactStep1": 25.5,
+      "reactStep2": 10.200000000000001,
+      "reactStep3": 1.53,
+      "reactRevenue": 3825,
+      "reactivationResponseRate": 0.05,
+      "reactivationQualRate": 0.4,
+      "reactivationCloseRate": 0.15,
+      "score": 50,
+      "costPerLead": 60,
+      "activeDays": 5,
+      "totalLeakage": 1149707.3529411764,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 105882.35294117645,
+          "pct": 9
+        },
+        {
+          "label": "Missed Calls",
+          "value": 1040000,
+          "pct": 90
+        },
+        {
+          "label": "Dead Leads",
+          "value": 3825,
+          "pct": 0
+        }
+      ],
+      "reactivationOpportunity": 3825
+    }
+  },
+  {
+    "name": "zero marketing spend, early start",
+    "inputs": {
+      "currency": "$",
+      "avgSaleValue": 2500,
+      "monthlyLeadVolume": 50,
+      "monthlyMarketingSpend": 0,
+      "responseTimeIdx": 7,
+      "workStart": 6,
+      "workEnd": 19,
+      "activeDays": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "missedCallsWeekly": 11,
+      "conversionRate": 15,
+      "followUpAttempts": "3",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 12,
+      "reactQualRate": 60,
+      "reactCloseRate": 25
+    },
+    "expected": {
+      "sym": "$",
+      "saleVal": 2500,
+      "monthlyLeads": 50,
+      "monthlySpend": 0,
+      "convRate": 0.15,
+      "annualRevenue": 225000,
+      "annualWaste": 0,
+      "cpa": 0,
+      "potentialCPA": 0,
+      "rt": {
+        "label": "12 hrs",
+        "minutes": 720,
+        "multiplier": 0.17
+      },
+      "speedLeakage": 1098529.4117647058,
+      "optimalRevenue": 1323529.4117647058,
+      "coveragePct": 39,
+      "weeklyHours": 65,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 71,
+      "annualMissed": 572,
+      "revLostMissed": 1430000,
+      "recoverableRev": 429000,
+      "prospects": 510,
+      "acquisitionCostSpent": 0,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 1913
+        },
+        {
+          "rate": "2%",
+          "revenue": 3825
+        },
+        {
+          "rate": "3%",
+          "revenue": 5738
+        },
+        {
+          "rate": "5%",
+          "revenue": 9563
+        },
+        {
+          "rate": "8%",
+          "revenue": 15300
+        }
+      ],
+      "reactStep1": 61.199999999999996,
+      "reactStep2": 36.72,
+      "reactStep3": 9.18,
+      "reactRevenue": 22950,
+      "reactivationResponseRate": 0.12,
+      "reactivationQualRate": 0.6,
+      "reactivationCloseRate": 0.25,
+      "score": 31,
+      "costPerLead": 0,
+      "activeDays": 5,
+      "totalLeakage": 2551479.4117647056,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 1098529.4117647058,
+          "pct": 43
+        },
+        {
+          "label": "Missed Calls",
+          "value": 1430000,
+          "pct": 56
+        },
+        {
+          "label": "Dead Leads",
+          "value": 22950,
+          "pct": 1
+        }
+      ],
+      "reactivationOpportunity": 22950
+    }
+  },
+  {
+    "name": "decimal inputs",
+    "inputs": {
+      "currency": "$",
+      "avgSaleValue": 1234.56,
+      "monthlyLeadVolume": 37,
+      "monthlyMarketingSpend": 2890.5,
+      "responseTimeIdx": 4,
+      "workStart": 9,
+      "workEnd": 17,
+      "activeDays": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "missedCallsWeekly": 3.5,
+      "conversionRate": 12.5,
+      "followUpAttempts": "4",
+      "followUpChannels": [
+        "Phone",
+        "Email"
+      ],
+      "reactResponseRate": 12,
+      "reactQualRate": 60,
+      "reactCloseRate": 25
+    },
+    "expected": {
+      "sym": "$",
+      "saleVal": 1234.56,
+      "monthlyLeads": 37,
+      "monthlySpend": 2890.5,
+      "convRate": 0.125,
+      "annualRevenue": 68518.08,
+      "annualWaste": 30350.25,
+      "cpa": 624.972972972973,
+      "potentialCPA": 324.98594594594596,
+      "rt": {
+        "label": "1 hr",
+        "minutes": 60,
+        "multiplier": 0.52
+      },
+      "speedLeakage": 63247.45846153847,
+      "optimalRevenue": 131765.53846153847,
+      "coveragePct": 24,
+      "weeklyHours": 40,
+      "industryAvgCoverage": 35,
+      "highConvCoverage": 12,
+      "annualMissed": 182,
+      "revLostMissed": 224689.91999999998,
+      "recoverableRev": 67406.976,
+      "prospects": 388.5,
+      "acquisitionCostSpent": 30350.250000000004,
+      "reactivationData": [
+        {
+          "rate": "1%",
+          "revenue": 719
+        },
+        {
+          "rate": "2%",
+          "revenue": 1439
+        },
+        {
+          "rate": "3%",
+          "revenue": 2158
+        },
+        {
+          "rate": "5%",
+          "revenue": 3597
+        },
+        {
+          "rate": "8%",
+          "revenue": 5756
+        }
+      ],
+      "reactStep1": 46.62,
+      "reactStep2": 27.971999999999998,
+      "reactStep3": 6.992999999999999,
+      "reactRevenue": 8633.278079999998,
+      "reactivationResponseRate": 0.12,
+      "reactivationQualRate": 0.6,
+      "reactivationCloseRate": 0.25,
+      "score": 52,
+      "costPerLead": 78.12162162162163,
+      "activeDays": 5,
+      "totalLeakage": 296570.6565415385,
+      "leakageBreakdown": [
+        {
+          "label": "Slow Response",
+          "value": 63247.45846153847,
+          "pct": 21
+        },
+        {
+          "label": "Missed Calls",
+          "value": 224689.91999999998,
+          "pct": 76
+        },
+        {
+          "label": "Dead Leads",
+          "value": 8633.278079999998,
+          "pct": 3
+        }
+      ],
+      "reactivationOpportunity": 8633.278079999998
+    }
+  }
+]
