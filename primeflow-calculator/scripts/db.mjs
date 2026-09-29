@@ -13,6 +13,11 @@ if (existsSync(".env.local")) {
 
 const url = process.env.TURSO_DATABASE_URL;
 if (!url) {
+  // --optional: the build calls migrate this way, so it still builds before a database is connected.
+  if (process.argv.includes("--optional")) {
+    console.log("No TURSO_DATABASE_URL set; skipping database step.");
+    process.exit(0);
+  }
   console.error("Set TURSO_DATABASE_URL (and TURSO_AUTH_TOKEN), or run `npx vercel env pull .env.local` first.");
   process.exit(1);
 }

@@ -19,12 +19,7 @@ For local API work without Turnstile, add `DEV_MODE=true` to `.env.local` (never
 
 1. **Import the repo** in Vercel. Set **Root Directory** to `primeflow-calculator`. Everything else (Vite, `npm run build`, `dist`) comes from `vercel.json`.
 2. **Add the database.** In the project: Storage → Marketplace → **Turso** → create a database and connect it to the project. This sets `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN`.
-3. **Create the tables** from your machine, once (and again whenever `migrations/` gets a new file):
-   ```bash
-   npx vercel link
-   npx vercel env pull .env.local
-   npm run db:migrate
-   ```
+3. **Tables are created automatically.** Every build runs `migrations/*.sql` that haven't been applied yet, so the first deploy after connecting Turso sets up the database.
 4. **Add the environment variables** below in Settings → Environment Variables, then redeploy.
 
 | Variable | Required | Purpose |
@@ -47,7 +42,7 @@ No secret may be prefixed `VITE_`. `VITE_` variables are baked in at build time,
 
 The database scripts read `TURSO_DATABASE_URL` / `TURSO_AUTH_TOKEN` from `.env.local` (`npx vercel env pull .env.local`).
 
-- `npm run db:migrate`: applies any new `migrations/*.sql` file.
+- `npm run db:migrate`: applies any new `migrations/*.sql` file (builds also do this automatically).
 - `npm run leads:export`: all leads to CSV.
 - `SITE=https://… RESEARCH_WARM_TOKEN=… npm run research:warm`: pre-caches research for every industry in AU, US, UK.
 - `npm run research:sources -- health-wellness`: prints every stored stat with its source for the owner to audit. Sources never reach the browser.

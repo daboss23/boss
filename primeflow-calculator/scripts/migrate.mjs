@@ -1,5 +1,6 @@
 // Applies every migrations/*.sql file not yet recorded in _migrations, in order.
 //   npm run db:migrate
+// Also runs at the start of every build (with --optional), so deploys create new tables themselves.
 import { readdirSync, readFileSync } from "node:fs";
 import { db } from "./db.mjs";
 
