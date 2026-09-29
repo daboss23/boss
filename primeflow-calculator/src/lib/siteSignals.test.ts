@@ -8,7 +8,7 @@ import {
   htmlToText,
   normalizeSiteUrl,
   usefulInternalLinks,
-} from "./siteSignals";
+} from "./siteSignals.js";
 
 const signal = (html: string, key: string) => detectSignals(html).find((s) => s.key === key)!;
 

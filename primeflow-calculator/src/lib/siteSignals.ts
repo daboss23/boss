@@ -3,10 +3,10 @@
  * something we actually found in the HTML, so it can be shown as fact.
  * Shared by /api/analyze-site and the unit tests.
  */
-import { HIGH_CONV_HOURS } from "./constants";
-import type { SiteHours, SiteSignal } from "./types";
+import { HIGH_CONV_HOURS } from "./constants.js";
+import type { SiteHours, SiteSignal } from "./types.js";
 
-export type { SiteScan, SiteSignal, SignalKey, SiteHours } from "./types";
+export type { SiteScan, SiteSignal, SignalKey, SiteHours } from "./types.js";
 
 interface Signature {
   name: string;

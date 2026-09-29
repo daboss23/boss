@@ -3,9 +3,9 @@
  * "How You Compare" maths. Research informs; the prospect's inputs drive the
  * core formulas. Sources are internal only and never reach the browser.
  */
-import { BENCHMARKS, RESEARCH_BOUNDS } from "./benchmarks";
-import { RESPONSE_TIMES } from "./constants";
-import type { CalculatorInputs, CalculatorResults, Industry, PublicResearch, ResearchComparison } from "./types";
+import { BENCHMARKS, RESEARCH_BOUNDS } from "./benchmarks.js";
+import { RESPONSE_TIMES } from "./constants.js";
+import type { CalculatorInputs, CalculatorResults, Industry, PublicResearch, ResearchComparison } from "./types.js";
 
 export const RESEARCH_METRICS = [
   "avg_sale_value",

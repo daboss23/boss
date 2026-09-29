@@ -1,4 +1,5 @@
-import type { Env } from "./env";
+import { ipAddress } from "@vercel/functions";
+import type { Env } from "./env.js";
 
 const SECURITY_HEADERS = {
   "content-type": "application/json; charset=utf-8",
@@ -27,8 +28,9 @@ export async function readJson(request: Request, maxBytes = 32_000): Promise<Rec
   }
 }
 
+/** Vercel sets x-real-ip from the connection, so clients can't spoof it. */
 export function clientIp(request: Request): string {
-  return request.headers.get("cf-connecting-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "0.0.0.0";
+  return ipAddress(request) ?? request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "0.0.0.0";
 }
 
 export async function sha256(text: string): Promise<string> {
@@ -60,7 +62,7 @@ export async function verifyTurnstile(env: Env, token: unknown, request: Request
 }
 
 /**
- * Fixed-window rate limit backed by D1. Returns true when the request is allowed.
+ * Fixed-window rate limit backed by the database. Returns true when the request is allowed.
  * `bucket` separates endpoints; windows are keyed by the hour.
  */
 export async function rateLimit(env: Env, bucket: string, ipHash: string, limit: number, windowSeconds = 3600): Promise<boolean> {

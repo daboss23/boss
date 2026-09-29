@@ -1,4 +1,4 @@
-import type { Currency } from "./types";
+import type { Currency } from "./types.js";
 
 const TZ_COUNTRY: [RegExp, string][] = [
   [/^Australia\//, "AU"],

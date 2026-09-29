@@ -1,10 +1,11 @@
+import { waitUntil } from "@vercel/functions";
 import type Anthropic from "@anthropic-ai/sdk";
-import { INDUSTRIES } from "../../src/lib/constants";
-import { countryName, RESEARCH_METRICS, researchKey, sanitizeResearch, stripSources, type ResearchDoc } from "../../src/lib/research";
-import type { Industry } from "../../src/lib/types";
-import { claude, DEFAULT_RESEARCH_MODEL, lastJsonObject } from "../_lib/claude";
-import type { Env } from "../_lib/env";
-import { badRequest, hashIp, json, rateLimit, readJson, tooMany, verifyTurnstile } from "../_lib/http";
+import { INDUSTRIES } from "../src/lib/constants.js";
+import { countryName, RESEARCH_METRICS, researchKey, sanitizeResearch, stripSources, type ResearchDoc } from "../src/lib/research.js";
+import type { Industry } from "../src/lib/types.js";
+import { claude, DEFAULT_RESEARCH_MODEL, lastJsonObject } from "../server/claude.js";
+import { getEnv, type Env } from "../server/env.js";
+import { badRequest, hashIp, json, rateLimit, readJson, tooMany, verifyTurnstile } from "../server/http.js";
 
 const FRESH_DAYS = 30;
 /** A pending row older than this is treated as abandoned and may be re-run. */
@@ -17,7 +18,8 @@ const PENDING_STALE_MINUTES = 5;
  * Cached by industry + segment + country (+ city) for 30 days. Uncached runs
  * start in the background and the client polls /api/research-status/:key.
  */
-export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUntil }) => {
+export async function POST(request: Request): Promise<Response> {
+  const env = getEnv();
   const body = await readJson(request, 4_000);
   if (!body) return badRequest("Invalid request.");
 
@@ -62,7 +64,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
 
   waitUntil(runResearch(env, key, { industry, segment, country, city }));
   return json({ key, status: "pending" });
-};
+}
 
 const RESEARCH_SYSTEM = `You are a meticulous market researcher. You find real, citable statistics about how businesses in a specific industry and country handle and convert inbound leads.
 

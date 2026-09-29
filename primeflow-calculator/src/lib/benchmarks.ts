@@ -9,7 +9,7 @@
  * owner approves or replaces it. They are shown to prospects as
  * "Industry average" and are always editable.
  */
-import type { Industry } from "./types";
+import type { Industry } from "./types.js";
 
 export interface Benchmark {
   avgSaleValue: number;

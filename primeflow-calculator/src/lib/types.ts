@@ -1,4 +1,4 @@
-import type { INDUSTRIES, CURRENCIES, FOLLOW_UP_OPTIONS, CHANNELS } from "./constants";
+import type { INDUSTRIES, CURRENCIES, FOLLOW_UP_OPTIONS, CHANNELS } from "./constants.js";
 
 export type Currency = (typeof CURRENCIES)[number];
 export type Industry = (typeof INDUSTRIES)[number];

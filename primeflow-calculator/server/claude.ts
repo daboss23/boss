@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-import type { Env } from "./env";
+import type { Env } from "./env.js";
 
 export const DEFAULT_MODEL = "claude-haiku-4-5";
 export const DEFAULT_RESEARCH_MODEL = "claude-sonnet-5";

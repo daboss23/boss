@@ -2,8 +2,8 @@
  * Input rules shared by the client (step buttons, inline messages) and the
  * server (submit-lead). The engine never runs on anything that fails here.
  */
-import { CHANNELS, CURRENCIES, FOLLOW_UP_OPTIONS, INDUSTRIES, RESPONSE_TIMES } from "./constants";
-import type { CalculatorInputs, FormState } from "./types";
+import { CHANNELS, CURRENCIES, FOLLOW_UP_OPTIONS, INDUSTRIES, RESPONSE_TIMES } from "./constants.js";
+import type { CalculatorInputs, FormState } from "./types.js";
 
 export type FieldErrors = Partial<Record<keyof FormState | "hours" | "name" | "email", string>>;
 

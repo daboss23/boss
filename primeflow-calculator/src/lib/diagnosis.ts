@@ -2,10 +2,10 @@
  * AI diagnosis prompt + template fallback. Pure, shared by the server (which
  * builds the prompt, never the browser) and the client (offline fallback).
  */
-import { scoreGrade } from "./calcResults";
-import { fmt, fmtFull, fmtInt } from "./formatters";
-import { siteGapLines, topOpportunities } from "./actionPlans";
-import type { CalculatorInputs, CalculatorResults, PublicResearch, SiteScan } from "./types";
+import { scoreGrade } from "./calcResults.js";
+import { fmt, fmtFull, fmtInt } from "./formatters.js";
+import { siteGapLines, topOpportunities } from "./actionPlans.js";
+import type { CalculatorInputs, CalculatorResults, PublicResearch, SiteScan } from "./types.js";
 
 export const DIAGNOSIS_SYSTEM = `You are a sharp revenue growth advisor at PrimeFlowAI, speaking directly to a business owner who just ran a pipeline audit.
 

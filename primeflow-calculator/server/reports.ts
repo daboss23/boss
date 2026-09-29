@@ -1,6 +1,6 @@
-import type { CalculatorInputs, CalculatorResults, PublicResearch, SiteScan } from "../../src/lib/types";
-import { stripSources, type ResearchDoc } from "../../src/lib/research";
-import type { Env } from "./env";
+import type { CalculatorInputs, CalculatorResults, PublicResearch, SiteScan } from "../src/lib/types.js";
+import { stripSources, type ResearchDoc } from "../src/lib/research.js";
+import type { Env } from "./env.js";
 
 export interface LeadRow {
   id: string;

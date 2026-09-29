@@ -1,16 +1,17 @@
-import { buildDiagnosisPrompt, cleanDiagnosis, DIAGNOSIS_SYSTEM, fallbackDiagnosis } from "../../src/lib/diagnosis";
-import { claude, DEFAULT_MODEL, textOf } from "../_lib/claude";
-import type { Env } from "../_lib/env";
-import { badRequest, json, readJson } from "../_lib/http";
-import { loadLead, loadPublicResearch, parseLead } from "../_lib/reports";
+import { buildDiagnosisPrompt, cleanDiagnosis, DIAGNOSIS_SYSTEM, fallbackDiagnosis } from "../src/lib/diagnosis.js";
+import { claude, DEFAULT_MODEL, textOf } from "../server/claude.js";
+import { getEnv } from "../server/env.js";
+import { badRequest, json, readJson } from "../server/http.js";
+import { loadLead, loadPublicResearch, parseLead } from "../server/reports.js";
 
 /**
  * POST { reportId } → { diagnosis, source: "ai" | "cached" | "fallback" }
  *
- * The client never sends prompt text or numbers. Everything is loaded from D1.
+ * The client never sends prompt text or numbers. Everything is loaded from the database.
  * Any failure returns a template diagnosis built from the real numbers.
  */
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+export async function POST(request: Request): Promise<Response> {
+  const env = getEnv();
   const body = await readJson(request, 2_000);
   const reportId = typeof body?.reportId === "string" ? body.reportId : "";
   const row = await loadLead(env, reportId);
@@ -48,4 +49,4 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   await env.DB.prepare("UPDATE leads SET diagnosis = ?1 WHERE id = ?2 AND diagnosis IS NULL").bind(diagnosis, row.id).run();
   const stored = await env.DB.prepare("SELECT diagnosis FROM leads WHERE id = ?1").bind(row.id).first<{ diagnosis: string }>();
   return json({ diagnosis: stored?.diagnosis ?? diagnosis, source });
-};
+}

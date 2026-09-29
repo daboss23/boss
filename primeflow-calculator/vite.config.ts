@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     // `npm run dev` serves the UI only. The client falls back to local
     // calculation when /api is unreachable, so the full flow still works.
-    // Use `npm run dev:full` for Functions + D1.
+    // Use `npm run dev:full` (vercel dev) for the API + database.
     proxy: process.env.API_PROXY ? { "/api": process.env.API_PROXY } : undefined,
   },
   build: {
@@ -15,6 +15,6 @@ export default defineConfig({
     chunkSizeWarningLimit: 1600,
   },
   test: {
-    include: ["src/**/*.test.ts", "functions/**/*.test.ts"],
+    include: ["src/**/*.test.ts", "server/**/*.test.ts"],
   },
 });

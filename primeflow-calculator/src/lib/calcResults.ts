@@ -2,7 +2,7 @@
  * Profit Recovery Engine: calculation core.
  *
  * Pure functions, no React, no I/O. Runs identically in the browser and in
- * Cloudflare Functions (the server recalculates from inputs and never trusts
+ * Vercel functions (the server recalculates from inputs and never trusts
  * client numbers). Ported line-for-line from legacy/index.html `calcResults()`
  * and verified against golden fixtures in calcResults.test.ts.
  *
@@ -31,8 +31,8 @@
  *   legacy used `parseFloat(x) || default`. Validation now blocks 0.
  * - "6+" follow-up attempts parses to 6.
  */
-import { HIGH_CONV_HOURS, MISSED_CALL_RECOVERABLE_SHARE, REACTIVATION_DEFAULTS, RESPONSE_TIMES } from "./constants";
-import type { CalculatorInputs, CalculatorResults, Grade, LeakageSegment } from "./types";
+import { HIGH_CONV_HOURS, MISSED_CALL_RECOVERABLE_SHARE, REACTIVATION_DEFAULTS, RESPONSE_TIMES } from "./constants.js";
+import type { CalculatorInputs, CalculatorResults, Grade, LeakageSegment } from "./types.js";
 
 export function scoreGrade(score: number): Grade {
   if (score >= 85) return { grade: "A", label: "Excellent", color: "#22c55e" };
