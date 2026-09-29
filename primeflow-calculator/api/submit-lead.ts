@@ -1,9 +1,10 @@
-import { calcResults, scoreGrade } from "../../src/lib/calcResults";
-import { fmtFull } from "../../src/lib/formatters";
-import { isValid, parseInputs, validateLead } from "../../src/lib/validation";
-import { normalizeSiteUrl } from "../../src/lib/siteSignals";
-import type { Env } from "../_lib/env";
-import { badRequest, hashIp, json, rateLimit, readJson, tooMany, verifyTurnstile } from "../_lib/http";
+import { waitUntil } from "@vercel/functions";
+import { calcResults, scoreGrade } from "../src/lib/calcResults.js";
+import { fmtFull } from "../src/lib/formatters.js";
+import { isValid, parseInputs, validateLead } from "../src/lib/validation.js";
+import { normalizeSiteUrl } from "../src/lib/siteSignals.js";
+import { getEnv, type Env } from "../server/env.js";
+import { badRequest, hashIp, json, rateLimit, readJson, tooMany, verifyTurnstile } from "../server/http.js";
 
 /**
  * POST { name, email, turnstileToken, inputs, researchKey? }
@@ -12,7 +13,8 @@ import { badRequest, hashIp, json, rateLimit, readJson, tooMany, verifyTurnstile
  * Results are always recalculated here from validated inputs; numbers sent by
  * the browser are ignored.
  */
-export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUntil }) => {
+export async function POST(request: Request): Promise<Response> {
+  const env = getEnv();
   const body = await readJson(request);
   if (!body) return badRequest("Invalid request.");
 
@@ -89,7 +91,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
   }
 
   return json({ reportId: id, results });
-};
+}
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 

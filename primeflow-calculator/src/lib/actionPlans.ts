@@ -3,9 +3,9 @@
  * each section; the prospect's own numbers are injected where they read
  * naturally. Every sentence must change when the inputs change.
  */
-import { DAYS, HIGH_CONV_HOURS } from "./constants";
-import { fmt, fmtInt, hourLabel } from "./formatters";
-import type { CalculatorInputs, CalculatorResults, SiteScan } from "./types";
+import { DAYS, HIGH_CONV_HOURS } from "./constants.js";
+import { fmt, fmtInt, hourLabel } from "./formatters.js";
+import type { CalculatorInputs, CalculatorResults, SiteScan } from "./types.js";
 
 export interface PlanStep {
   title: string;

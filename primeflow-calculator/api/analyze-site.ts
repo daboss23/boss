@@ -1,5 +1,5 @@
-import { BENCHMARKS } from "../../src/lib/benchmarks";
-import { INDUSTRIES } from "../../src/lib/constants";
+import { BENCHMARKS } from "../src/lib/benchmarks.js";
+import { INDUSTRIES } from "../src/lib/constants.js";
 import {
   afterHoursGap,
   detectSignals,
@@ -10,18 +10,17 @@ import {
   metaContent,
   normalizeSiteUrl,
   usefulInternalLinks,
-} from "../../src/lib/siteSignals";
-import type { Industry, SiteHours, SiteScan } from "../../src/lib/types";
-import { claude, DEFAULT_MODEL } from "../_lib/claude";
-import type { Env } from "../_lib/env";
-import { badRequest, hashIp, json, rateLimit, readJson, tooMany, verifyTurnstile } from "../_lib/http";
+} from "../src/lib/siteSignals.js";
+import type { Industry, SiteHours, SiteScan } from "../src/lib/types.js";
+import { claude, DEFAULT_MODEL } from "../server/claude.js";
+import { getEnv, type Env } from "../server/env.js";
+import { badRequest, hashIp, json, rateLimit, readJson, tooMany, verifyTurnstile } from "../server/http.js";
 
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36";
 const FETCH_TIMEOUT_MS = 6_000;
 const MAX_HTML_BYTES = 1_500_000;
 const CACHE_DAYS = 7;
-const MIN_VISIBLE_TEXT = 400;
 
 const FAIL_MESSAGE = "We couldn't read that site, no problem, just fill in the details below.";
 
@@ -31,7 +30,8 @@ const FAIL_MESSAGE = "We couldn't read that site, no problem, just fill in the d
  * Code detects conversion-gap signals. Claude only extracts what is explicitly
  * on the page (null otherwise). Benchmarks come from the owner's table.
  */
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+export async function POST(request: Request): Promise<Response> {
+  const env = getEnv();
   const body = await readJson(request, 4_000);
   if (!body) return badRequest("Invalid request.");
   const norm = normalizeSiteUrl(String(body.url ?? ""));
@@ -53,17 +53,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   try {
     const home = await fetchHtml(url.href);
-    let html = home?.html ?? "";
+    const html = home?.html ?? "";
     const finalUrl = home?.finalUrl ? new URL(home.finalUrl) : url;
-
-    // JavaScript-rendered sites: retry with Browser Rendering.
-    if (htmlToText(html).length < MIN_VISIBLE_TEXT && env.BROWSER) {
-      const rendered = await renderWithBrowser(env.BROWSER, url.href).catch((err) => {
-        console.error("browser rendering failed", err);
-        return null;
-      });
-      if (rendered) html = rendered;
-    }
     if (!html) return json({ error: FAIL_MESSAGE }, 422);
 
     const extra = await Promise.all(
@@ -118,7 +109,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     console.error("analyze-site failed", err);
     return json({ error: FAIL_MESSAGE }, 422);
   }
-};
+}
 
 function respond(scan: SiteScan, cached: boolean) {
   const benchmark = scan.industry ? BENCHMARKS[scan.industry] : null;
@@ -170,19 +161,6 @@ async function fetchHtml(href: string): Promise<{ html: string; finalUrl: string
     return null;
   } finally {
     clearTimeout(t);
-  }
-}
-
-async function renderWithBrowser(binding: Fetcher, href: string): Promise<string | null> {
-  const puppeteer = await import("@cloudflare/puppeteer");
-  const browser = await puppeteer.default.launch(binding);
-  try {
-    const page = await browser.newPage();
-    await page.setUserAgent(UA);
-    await page.goto(href, { waitUntil: "networkidle0", timeout: 12_000 });
-    return await page.content();
-  } finally {
-    await browser.close();
   }
 }
 

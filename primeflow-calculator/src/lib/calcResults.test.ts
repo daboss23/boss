@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import golden from "./__fixtures__/legacy-golden.json";
-import { calcResults, scoreGrade } from "./calcResults";
-import type { CalculatorInputs } from "./types";
+import { calcResults, scoreGrade } from "./calcResults.js";
+import type { CalculatorInputs } from "./types.js";
 
 /**
  * Golden tests: every fixture was produced by running the verbatim legacy

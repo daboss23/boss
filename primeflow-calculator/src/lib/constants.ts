@@ -1,4 +1,4 @@
-import type { ResponseTime } from "./types";
+import type { ResponseTime } from "./types.js";
 
 export const CURRENCIES = ["$", "£", "€"] as const;
 export const CURRENCY_CODES: Record<(typeof CURRENCIES)[number], string> = { $: "USD", "£": "GBP", "€": "EUR" };

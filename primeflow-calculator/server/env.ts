@@ -1,7 +1,7 @@
+import { createDb, type Db } from "./db.js";
+
 export interface Env {
-  DB: D1Database;
-  /** Cloudflare Browser Rendering binding (optional). */
-  BROWSER?: Fetcher;
+  DB: Db;
   ANTHROPIC_API_KEY?: string;
   /** Diagnosis + site extraction. Default claude-haiku-4-5. */
   ANTHROPIC_MODEL?: string;
@@ -21,4 +21,25 @@ export interface Env {
   DEV_MODE?: string;
 }
 
-export type Ctx = EventContext<Env, string, Record<string, unknown>>;
+let cached: Env | null = null;
+
+/** Reads Vercel environment variables once per function instance. */
+export function getEnv(): Env {
+  if (cached) return cached;
+  const e = process.env;
+  cached = {
+    DB: createDb(e.TURSO_DATABASE_URL, e.TURSO_AUTH_TOKEN),
+    ANTHROPIC_API_KEY: e.ANTHROPIC_API_KEY,
+    ANTHROPIC_MODEL: e.ANTHROPIC_MODEL,
+    ANTHROPIC_RESEARCH_MODEL: e.ANTHROPIC_RESEARCH_MODEL,
+    TURNSTILE_SECRET_KEY: e.TURNSTILE_SECRET_KEY,
+    RESEND_API_KEY: e.RESEND_API_KEY,
+    NOTIFY_EMAIL: e.NOTIFY_EMAIL,
+    NOTIFY_FROM: e.NOTIFY_FROM,
+    MAX_RESEARCH_PER_DAY: e.MAX_RESEARCH_PER_DAY,
+    PUBLIC_ORIGIN: e.PUBLIC_ORIGIN,
+    RESEARCH_WARM_TOKEN: e.RESEARCH_WARM_TOKEN,
+    DEV_MODE: e.DEV_MODE,
+  };
+  return cached;
+}
